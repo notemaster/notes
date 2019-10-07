@@ -1,0 +1,269 @@
+#+TITLE: Intermediate Logic Notes 
+#+LATEX_HEADER: \usepackage{amssymb}
+
+* Introduction to Course 09/12/19
+** Administrative stuff
+  Sign up for precept; Thursday times
+
+  1) Contemporary symbolic logic; Can start proving things; can write explicitly steps in math.
+  2) Ask questions about Logic can do; Metalogic/Metamathematics
+     1) Logic \sim Phi 201
+     2) Metalogic \sim Phi 312
+	1) Completeness and Soundness Proofs
+  Emphasis is on /perseverance/
+  Strongly encourage collaboration; Straight on definitions. Struggle
+  Math safe and not complete(Hilbert) or open and complete(Godel).
+
+
+  First couple of weeks is about propositional logic. 
+  theories in propositional logic \sim boolean algebra \sim Stone topological space
+
+  Predicate logic; Completeness, soundness
+** Theories in the wild
+
+  - Evolutionary Biology; Theories can be facts; Theory=System of beliefs to understand the world.
+  - Relativity
+  - Neuroscience
+  - Folk Psycholgy; (think have understanding of thoughts and feelings)
+
+** Regimented Theories (math)
+
+  - Peano arithmetic
+  - Group theory
+  - Field Theory
+  - Theory of Topological Spaces
+  - Set Theory (Most general)
+  - Elemental Thoery of the Category Sets
+
+** How to decide which theory to believe
+
+  Not a class on epistemology. Question before knowledge.
+  Suppose need two people, German and French. Both say Einstein's theories of relativity in their own
+  languages. This is a demonstration of equivalence.
+
+*** Metaconcept on how Theories Relate
+   Idea that some theories can be equivalent. 
+   e.g. Schrodinger(Wave mechanics) and Heisenberg(matrix mechanics). Bohr realizes that they are saying the 
+   same thing. Neumann proves that both theories are equivalent.
+
+   e.g. Folk psychology is /reducible/ to neuroscience.
+
+   Theory of heat; Thermodynamics is reducible to statistical mechanics.
+
+*** Explicating Terms
+   What we would like is precision in terms. Math likes to swallow things wwe already know
+   and be rigorous in definition. 
+
+   - *Continuous:*
+   - *Equivilant*
+   - *Reducible*
+   - *Function*
+   - *infinite*
+
+   Regimented Theory are theories in First Order Logic. Propositional Theories is subcollection.
+   Structure of Bolean Algebras \sim Stone Topological Space 
+* Rigorous idea of the Theory 09/17/19
+** Pset 1 DUE DATE DEADLINE: <2019-09-23 Mon>
+** Notion of the Theory; How to make it rigorous
+Define Theory in first-order logic. Subclass of Propositional Theories (Think of this as a network).
+Need to understand the form, /relations between theories./ Can study closeness of theories?
+
+*Primary Focus:* Relation of theories, that we can schematize by \rightarrow with \rightarrow meaning /translation/
+
+*Equivalent:* Translation between theories
+
+*Reduction:* Some kind of translation.
+
+1) What is Propositional Logic
+2) Define notion of translation between theories
+** Propositional Logic
+1) Grammar
+2) Proof Theory
+3) Semantics (Representation Theory)
+
+Hans is already using a Metatheory that is similar to Set Theory.
+Logic has a grammar; A set of Symbols.
+
+\Sigma = {p} where \Sigma is a non logical symbol
+
+Logical Symbols don't have meaning, just help to make sentences;
+1) \wedge
+2) \vee
+3) \rightarrow
+4) etc.
+
+*Definition*: Let Str(\Sigma) be the set of finite strings
+of Symbols: Logical + \Sigma.
+
+Literal Identity of Symbols. Sameness means same pattern. \sim Platonic
+
+\phi is being used a metatheoretical tool.
+
+*All the stuff below is Grammar*\\
+*Definition:* The set Sent(\Sigma) is defined inductively by the following
+1) \forall \phi \in \Sigma, we have \phi \in Sent(\Sigma)
+2) \phi \in Sent(\Sigma) \rightarrow \not \phi \in Sent(\Sigma)
+3) [\phi \in Sent(\Sigma) \wedge \psi \in Sent(\Sigma)] \implies \phi \rightarrow \psi \in Sent(\Sigma).
+4) \wedge
+5) \vee
+6) No infinitely long sentences.
+
+There is at least one inductive set in the theory that we are looking at.
+
+** Proof Theory
+
+\Delta \vdash \phi
+
+\Delta, \Gamma = \Gamma, \Delta where the comma acts as union
+
+1) \phi \vdash \phi Rule of Assumptions.
+2) \Delta \vdash \phi \wedge \(\Delta_0 \subseteq \Delta\) \rightarrow \(\Delta_0\) \vdash \phi
+
+| \Gamma \vdash \phi \rightarrow \psi | \Delta \vdash \phi |
+|-------------------------------------+----------------------|
+| \Gamma , \Delta \vdash \psi      |                      |
+
+
+| \Gamma , \phi \vdash \psi |
+|----------------------------|
+| \Gamma \vdash \phi \rightarrow \psi |
+
+
+| \Gamma \vdash \phi \vee \psi | \Delta , \phi \vdash \chi | \Theta , \psi \vdash \chi |
+|--------------------------------+-----------------------------+-----------------------------|
+|                                | \Gamma , \Delta , \Theta \vdash \chi |                             |
+
+
+\bot = contradiction
+
+| \Gamma , \phi \vdash \bot |
+|-------------------------------|
+| \Gamma \vdash \not \phi |
+** Semantics
+
+*Definition:* A \Sigma -valuation v is a function from \Sigma to {0,1}
+
+*Fact* Each valuation v extends uniquely to a function \(\bar{v}\): Sent(\Sigma) \rightarrow {0,1}
+s.t.  \(\bar{v}\) (\phi) = v(\phi), all \phi \in \Sigma \\ 
+ \(\bar{v}\)  (\phi \wedge \psi) = min { \(\bar{v}(\phi)\) , \(\bar{v} (\psi)\) }\\
+ \(\bar{v}\) (\phi \vee \psi) = max{ " "} \\
+ \(\bar{v}\) (\not \phi) = 1 - \(\bar{v}(\phi)\) \\
+
+*Definition*: \phi 
+- contingent: One valuation  = 0 and one valuation = 1; At least
+- Tautologies: v(\phi ) = 1
+- Inconsistent: v(\phi ) = 0
+
+Definition: \Delta \vDash \phi \iff \forall valuations v , v(\psi ) = 1 , all \psi \in \Delta , \rightarrow v(\phi ) = 1.
+
+\(\vDash\) = Semantically implies
+
+*Fact:* \phi \vDash \psi \wedge \psi \vDash \chi \rightarrow \psi \vDash \chi.
+
+* Theorems and Theory 09/19/19 
+Sent(\Sigma)  has a p or a q.\\
+Sentences finitely long
+Context: set of sentences\\
+, = union\\
+\phi .. \phi sentences individ.\\
+
+\Delta \vdash \phi ; Proven inductively
+
+\Delta \vDash \phi ; defined by valuation using 1,0 over universal; Not effectively decidable;
+ n elementary sentences (p, q , ...) 2^n evaluations.
+
+*Soundness*: If \Delta \vdash \phi then \Delta \vDash \phi
+
+predicate built up inductively.
+
+*Completeness*: If \Delta \vDash \phi the \Delta \vdash \phi
+
+Second much more difficult than the first; Says that there is a proof.
+
+Consistency: \exists v; v(\phi)=1, \forall \phi \in \Delta
+
+*Compactness:* 
+1) If every finite subset \(\Delta_0\) of \Delta is consistent(There is a valuation that is true), Then \Delta is consistent.
+2) /Corollary/: If \Delta \vDash \phi then there is a finite subset \(\Delta_0 \subseteq \Delta s.t. \Delta_0 \vDash \phi.\)
+3) Why? If \Delta \vDash \phi then \Delta , \not \phi is inconsistent.
+4) Hence there is a finite subset \(\Delta_0  \subseteq \Delta s.t. \Delta_0 , \not \phi\) is inconsistent \(\Delta_0 \vDash \phi\)
+
+1) \(P1\)There is more that 1 number.
+2) \(P2\)There is more than 2 numbers.
+\vdots
+
+C There are infinitely many numbers
+
+Set of axioms form a theory.
+
+Propositional Theory requires a language(choose how many symbols/propositional constants; Need to choose a signature)
+
+Empty Theory: 
+| \Sigma = {p}    | T = 0 with no axioms | Will only get tautologies| 
+| \Sigma = {p, q} | T = 0 with no axioms |
+| \Sigma = {q}    | T= 0 with no axioms  |
+
+
+Theory is not a set; contains a signature and a set of axioms. Choice of language and some axioms.
+
+\(T \vdash \phi\) If you add the axioms of T then you can derive \phi.
+
+*Definition* v is a /model/ of T. if v(\phi) = 1, \forall \phi \in T. 
+A valuation that makes all the sentences in T true.
+
+*Definition* T is consistent if T has a model
+
+\Sigma = \( { p_0,p_1,... } \)
+
+T = \( { p_0\rightarrow p_1, p_0\rightarrow p_2, ... } \)
+
+Is there a model for T? Any valuation where \(p_0\) is false there is infinite possibilities for a model.
+Any valuation where \(p_0\) is true only has one possibility to make a model because everything must be true.
+
+*Definition* A theory T is *complete* if for any \phi \in Sent(\Sigma)
+either T \vdash \phi  or \(T \vdash \not \phi\)
+
+Empty theories are incomplete as it doesn't tell you anything about the signature;
+
+E.g. \Sigma = {p} ; T = 0
+
+To make it complete make T = {p}; There is just one valuation.
+
+This new T has exactly one model. Show that T \vdash \phi and \(T \vdash \not \phi\)
+
+new T ~ \(T_v = {\phi \in Sent(\Sigma)| v(\phi) = 1}\) 
+\[T_v \vdash \phi\] or \[T_v \vdash \not \phi\]
+
+complete and consistent has only one theory.
+
+*Properties of Theories:*
+- Complete
+- having finitely many axioms
+  - Isn't a big deal, infinitely increasing
+- \Sigma is finite
+- How do we decide what is interesting? To decide must be in relation to relations between theories.
+
+*Relations between theories*
+
+*Definition* A reconstrual of \Sigma in \(\Sigma_0\) is a function \(f: \Sigma\rightarrow Sent(\Sigma_0)\)
+
+*Fact:* A reconstrual f extends uniquely to a function \(f: Sent(\Sigma) \rightarrow Sent(\Sigma_0) s.t. f(\not \phi) = \not f(\phi)\) 
+and so on for other logical connectives
+
+*Definition* f is a /translation from T to T\prime. f: T\rightarrow T\prime iff for all \phi \in Sent(\Sigma) if T \vdash \phi then T\prime \vdash f(\phi)
+
+\Sigma = \({p_0,p_1,...}\) T = 0
+
+T \vdash \phi \\
+\vDash \phi
+
+T\vDash f(\phi); Reconstruals always take 
+
+*Definition* a T-atom; Atom relative to a Theory.
+
+| \top |                       |
+|      | \psi                 |
+| \phi | Nothing lower than it |
+| \bot |                       |
+
+Atom for a theory is a sentence that is consistnent for a theory,

@@ -1,0 +1,21 @@
+Time to make some notes ;
+* Big O notation
+Big O: An upper bound on time. ~ <= relqationship.
+\Omega: Lower bound on time
+\Theta: O and \Omega. something is \Theta(N) if it is both 
+O(N) and \Omega (N)
+** Sorts
+*** Quick Sort:
+Desc: Pick a random element as "pivot" and swap values in array st
+the elements less than pivot appear before elements greater than pivot:
+In effect a partial sort:
+
+| Best                | Worst         | Expected   |
+|---------------------+---------------+------------|
+| O(N)                | O(N^2)        | O(N log N) |
+| Case                | Case          | Case       |
+| Elements are equal; | reverse order |            |
+
+For many algorithms, Worst and expected are the same.
+
+|Notation|

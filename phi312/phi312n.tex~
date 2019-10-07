@@ -1,0 +1,567 @@
+% Created 2019-09-26 Thu 10:19
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\author{Isaac Velasquez}
+\date{\today}
+\title{Intermediate Logic Notes}
+\hypersetup{
+ pdfauthor={Isaac Velasquez},
+ pdftitle={Intermediate Logic Notes},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.1.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Introduction to Course 09/12/19}
+\label{sec:org17db708}
+\subsection{Administrative stuff}
+\label{sec:orgfa1d610}
+Sign up for precept; Thursday times
+
+\begin{enumerate}
+\item Contemporary symbolic logic; Can start proving things; can write explicitly steps in math.
+\item Ask questions about Logic can do; Metalogic/Metamathematics
+\begin{enumerate}
+\item Logic \(\sim\) Phi 201
+\item Metalogic \(\sim\) Phi 312
+\begin{enumerate}
+\item Completeness and Soundness Proofs
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+Emphasis is on \emph{perseverance}
+Strongly encourage collaboration; Straight on definitions. Struggle
+Math safe and not complete(Hilbert) or open and complete(Godel).
+
+
+First couple of weeks is about propositional logic. 
+theories in propositional logic \(\sim\) boolean algebra \(\sim\) Stone topological space
+
+Predicate logic; Completeness, soundness
+\subsection{Theories in the wild}
+\label{sec:org4be4f93}
+
+\begin{itemize}
+\item Evolutionary Biology; Theories can be facts; Theory=System of beliefs to understand the world.
+\item Relativity
+\item Neuroscience
+\item Folk Psycholgy; (think have understanding of thoughts and feelings)
+\end{itemize}
+
+\subsection{Regimented Theories (math)}
+\label{sec:orgcd4125b}
+
+\begin{itemize}
+\item Peano arithmetic
+\item Group theory
+\item Field Theory
+\item Theory of Topological Spaces
+\item Set Theory (Most general)
+\item Elemental Thoery of the Category Sets
+\end{itemize}
+
+\subsection{How to decide which theory to believe}
+\label{sec:orga679aa5}
+
+Not a class on epistemology. Question before knowledge.
+Suppose need two people, German and French. Both say Einstein's theories of relativity in their own
+languages. This is a demonstration of equivalence.
+
+\subsubsection{Metaconcept on how Theories Relate}
+\label{sec:org1abc3bb}
+Idea that some theories can be equivalent. 
+e.g. Schrodinger(Wave mechanics) and Heisenberg(matrix mechanics). Bohr realizes that they are saying the 
+same thing. Neumann proves that both theories are equivalent.
+
+e.g. Folk psychology is \emph{reducible} to neuroscience.
+
+Theory of heat; Thermodynamics is reducible to statistical mechanics.
+
+\subsubsection{Explicating Terms}
+\label{sec:org17060df}
+What we would like is precision in terms. Math likes to swallow things wwe already know
+and be rigorous in definition. 
+
+\begin{itemize}
+\item \textbf{Continuous:}
+\item \textbf{Equivilant}
+\item \textbf{Reducible}
+\item \textbf{Function}
+\item \textbf{infinite}
+\end{itemize}
+
+Regimented Theory are theories in First Order Logic. Propositional Theories is subcollection.
+Structure of Bolean Algebras \(\sim\) Stone Topological Space 
+\section{Rigorous idea of the Theory 09/17/19}
+\label{sec:orgd07f516}
+\subsection{Pset 1 DUE DATE DEADLINE: \textit{<2019-09-23 Mon>}}
+\label{sec:org7ccb241}
+\subsection{Notion of the Theory; How to make it rigorous}
+\label{sec:orgf1787f3}
+Define Theory in first-order logic. Subclass of Propositional Theories (Think of this as a network).
+Need to understand the form, \emph{relations between theories.} Can study closeness of theories?
+
+\textbf{Primary Focus:} Relation of theories, that we can schematize by \(\rightarrow\) with \(\rightarrow\) meaning \emph{translation}
+
+\textbf{Equivalent:} Translation between theories
+
+\textbf{Reduction:} Some kind of translation.
+
+\begin{enumerate}
+\item What is Propositional Logic
+\item Define notion of translation between theories
+\end{enumerate}
+\subsection{Propositional Logic}
+\label{sec:org3f2d418}
+\begin{enumerate}
+\item Grammar
+\item Proof Theory
+\item Semantics (Representation Theory)
+\end{enumerate}
+
+Hans is already using a Metatheory that is similar to Set Theory.
+Logic has a grammar; A set of Symbols.
+
+\(\Sigma\) = \{p\} where \(\Sigma\) is a non logical symbol
+
+Logical Symbols don't have meaning, just help to make sentences;
+\begin{enumerate}
+\item \(\wedge\)
+\item \(\vee\)
+\item \(\rightarrow\)
+\item etc.
+\end{enumerate}
+
+\textbf{Definition}: Let Str(\(\Sigma\)) be the set of finite strings
+of Symbols: Logical + \(\Sigma\).
+
+Literal Identity of Symbols. Sameness means same pattern. \(\sim\) Platonic
+
+\(\phi\) is being used a metatheoretical tool.
+
+\textbf{All the stuff below is Grammar}\\
+\textbf{Definition:} The set Sent(\(\Sigma\)) is defined inductively by the following
+\begin{enumerate}
+\item \(\forall\) \(\phi\) \(\in\) \(\Sigma\), we have \(\phi\) \(\in\) Sent(\(\Sigma\))
+\item \(\phi\) \(\in\) Sent(\(\Sigma\)) \(\rightarrow\) \textlnot{} \(\phi\) \(\in\) Sent(\(\Sigma\))
+\item\relax [\(\phi\) \(\in\) Sent(\(\Sigma\)) \(\wedge\) \(\psi\) \(\in\) Sent(\(\Sigma\))] \implies \(\phi\) \(\rightarrow\) \(\psi\) \(\in\) Sent(\(\Sigma\)).
+\item \(\wedge\)
+\item \(\vee\)
+\item No infinitely long sentences.
+\end{enumerate}
+
+There is at least one inductive set in the theory that we are looking at.
+
+\subsection{Proof Theory}
+\label{sec:org07ed717}
+
+\(\Delta\) \vdash \(\phi\)
+
+\(\Delta\), \(\Gamma\) = \(\Gamma\), \(\Delta\) where the comma acts as union
+
+\begin{enumerate}
+\item \(\phi\) \vdash \(\phi\) Rule of Assumptions.
+\item \(\Delta\) \vdash \(\phi\) \(\wedge\) \(\Delta_0 \subseteq \Delta\) \(\rightarrow\) \(\Delta_0\) \vdash \(\phi\)
+\end{enumerate}
+
+\begin{center}
+\begin{tabular}{ll}
+\(\Gamma\) \vdash \(\phi\) \(\rightarrow\) \(\psi\) & \(\Delta\) \vdash \(\phi\)\\
+\hline
+\(\Gamma\) , \(\Delta\) \vdash \(\psi\) & \\
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{l}
+\(\Gamma\) , \(\phi\) \vdash \(\psi\)\\
+\hline
+\(\Gamma\) \vdash \(\phi\) \(\rightarrow\) \(\psi\)\\
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{lll}
+\(\Gamma\) \vdash \(\phi\) \(\vee\) \(\psi\) & \(\Delta\) , \(\phi\) \vdash \(\chi\) & \(\Theta\) , \(\psi\) \vdash \(\chi\)\\
+\hline
+ & \(\Gamma\) , \(\Delta\) , \(\Theta\) \vdash \(\chi\) & \\
+\end{tabular}
+\end{center}
+
+
+\bot = contradiction
+
+\begin{center}
+\begin{tabular}{l}
+\(\Gamma\) , \(\phi\) \vdash \bot\\
+\hline
+\(\Gamma\) \vdash \textlnot{} \(\phi\)\\
+\end{tabular}
+\end{center}
+\subsection{Semantics}
+\label{sec:org8b85092}
+
+\textbf{Definition:} A \(\Sigma\) -valuation v is a function from \(\Sigma\) to \{0,1\}
+
+\textbf{Fact} Each valuation v extends uniquely to a function \(\bar{v}\): Sent(\(\Sigma\)) \(\rightarrow\) \{0,1\}
+s.t.  \(\bar{v}\) (\(\phi\)) = v(\(\phi\)), all \(\phi\) \(\in\) \(\Sigma\) \\
+ \(\bar{v}\)  (\(\phi\) \(\wedge\) \(\psi\)) = min \{ \(\bar{v}(\phi)\) , \(\bar{v} (\psi)\) \}\\
+ \(\bar{v}\) (\(\phi\) \(\vee\) \(\psi\)) = max\{ " "\} \\
+ \(\bar{v}\) (\textlnot{} \(\phi\)) = 1 - \(\bar{v}(\phi)\) \\
+
+\textbf{Definition}: \(\phi\) 
+\begin{itemize}
+\item contingent: One valuation  = 0 and one valuation = 1; At least
+\item Tautologies: v(\(\phi\) ) = 1
+\item Inconsistent: v(\(\phi\) ) = 0
+\end{itemize}
+
+Definition: \(\Delta\) \vDash \(\phi\) \iff \(\forall\) valuations v , v(\(\psi\) ) = 1 , all \(\psi\) \(\in\) \(\Delta\) , \(\rightarrow\) v(\(\phi\) ) = 1.
+
+\(\vDash\) = Semantically implies
+
+\textbf{Fact:} \(\phi\) \vDash \(\psi\) \(\wedge\) \(\psi\) \vDash \(\chi\) \(\rightarrow\) \(\psi\) \vDash \(\chi\).
+
+\section{Theorems and Theory 09/19/19}
+\label{sec:org2824c91}
+Sent(\(\Sigma\))  has a p or a q.\\
+Sentences finitely long
+Context: set of sentences\\
+, = union\\
+\(\phi\) .. \(\phi\) sentences individ.\\
+
+\(\Delta\) \vdash \(\phi\) ; Proven inductively
+
+\(\Delta\) \vDash \(\phi\) ; defined by valuation using 1,0 over universal; Not effectively decidable;
+ n elementary sentences (p, q , \ldots{}) 2\(^{\text{n}}\) evaluations.
+
+\textbf{Soundness}: If \(\Delta\) \vdash \(\phi\) then \(\Delta\) \vDash \(\phi\)
+
+predicate built up inductively.
+
+\textbf{Completeness}: If \(\Delta\) \vDash \(\phi\) the \(\Delta\) \vdash \(\phi\)
+
+Second much more difficult than the first; Says that there is a proof.
+
+Consistency: \(\exists\) v; v(\(\phi\))=1, \(\forall\) \(\phi\) \(\in\) \(\Delta\)
+
+\textbf{Compactness:} 
+\begin{enumerate}
+\item If every finite subset \(\Delta_0\) of \(\Delta\) is consistent(There is a valuation that is true), Then \(\Delta\) is consistent.
+\item \emph{Corollary}: If \(\Delta\) \vDash \(\phi\) then there is a finite subset \(\Delta_0 \subseteq \Delta s.t. \Delta_0 \vDash \phi.\)
+\item Why? If \(\Delta\) \vDash \(\phi\) then \(\Delta\) , \textlnot{} \(\phi\) is inconsistent.
+\item Hence there is a finite subset \(\Delta_0  \subseteq \Delta s.t. \Delta_0 , \not \phi\) is inconsistent \(\Delta_0 \vDash \phi\)
+
+\item \(P1\)There is more that 1 number.
+\item \(P2\)There is more than 2 numbers.
+\end{enumerate}
+\vdots
+
+C There are infinitely many numbers
+
+Set of axioms form a theory.
+
+Propositional Theory requires a language(choose how many symbols/propositional constants; Need to choose a signature)
+
+Empty Theory: 
+\begin{center}
+\begin{tabular}{lll}
+\(\Sigma\) = \{p\} & T = 0 with no axioms & Will only get tautologies\\
+\(\Sigma\) = \{p, q\} & T = 0 with no axioms\\
+\(\Sigma\) = \{q\} & T= 0 with no axioms\\
+\end{tabular}
+\end{center}
+
+
+Theory is not a set; contains a signature and a set of axioms. Choice of language and some axioms.
+
+\(T \vdash \phi\) If you add the axioms of T then you can derive \(\phi\).
+
+\textbf{Definition} v is a \emph{model} of T. if v(\(\phi\)) = 1, \(\forall\) \(\phi\) \(\in\) T. 
+A valuation that makes all the sentences in T true.
+
+\textbf{Definition} T is consistent if T has a model
+
+\(\Sigma\) = \({ p_0,p_1,... }\)
+
+T = \({ p_0\rightarrow p_1, p_0\rightarrow p_2, ... }\)
+
+Is there a model for T? Any valuation where \(p_0\) is false there is infinite possibilities for a model.
+Any valuation where \(p_0\) is true only has one possibility to make a model because everything must be true.
+
+\textbf{Definition} A theory T is \textbf{complete} if for any \(\phi\) \(\in\) Sent(\(\Sigma\))
+either T \vdash \(\phi\)  or \(T \vdash \not \phi\)
+
+Empty theories are incomplete as it doesn't tell you anything about the signature;
+
+E.g. \(\Sigma\) = \{p\} ; T = 0
+
+To make it complete make T = \{p\}; There is just one valuation.
+
+This new T has exactly one model. Show that T \vdash \(\phi\) and \(T \vdash \not \phi\)
+
+new T \textasciitilde{} \(T_v = {\phi \in Sent(\Sigma)| v(\phi) = 1}\) 
+\[T_v \vdash \phi\] or \[T_v \vdash \not \phi\]
+
+complete and consistent has only one theory.
+
+\textbf{Properties of Theories:}
+\begin{itemize}
+\item Complete
+\item having finitely many axioms
+\begin{itemize}
+\item Isn't a big deal, infinitely increasing
+\end{itemize}
+\item \(\Sigma\) is finite
+\item How do we decide what is interesting? To decide must be in relation to relations between theories.
+\end{itemize}
+
+\textbf{Relations between theories}
+
+\textbf{Definition} A reconstrual of \(\Sigma\) in \(\Sigma_0\) is a function \(f: \Sigma\rightarrow Sent(\Sigma_0)\)
+
+\textbf{Fact:} A reconstrual f extends uniquely to a function \(f: Sent(\Sigma) \rightarrow Sent(\Sigma_0) s.t. f(\not \phi) = \not f(\phi)\) 
+and so on for other logical connectives
+
+\textbf{Definition} f is a /translation from T to T\(\prime\). f: T\(\rightarrow\) T\(\prime\) iff for all \(\phi\) \(\in\) Sent(\(\Sigma\)) if T \vdash \(\phi\) then T\(\prime\) \vdash f(\(\phi\))
+
+\(\Sigma\) = \({p_0,p_1,...}\) T = 0
+
+T \vdash \(\phi\) \\
+\vDash \(\phi\)
+
+T\vDash f(\(\phi\)); Reconstruals always take 
+
+\textbf{Definition} a T-atom; Atom relative to a Theory.
+
+\begin{center}
+\begin{tabular}{ll}
+\top & \\
+ & \(\psi\)\\
+\(\phi\) & Nothing lower than it\\
+\bot & \\
+\end{tabular}
+\end{center}
+
+Atom for a theory is a sentence that is consistnent for a theory,
+\section{Structure of Propositional Theories 09/24/19}
+\label{sec:orgaeff82d}
+How to organize propositional Theories. Within Proposition Theories we can have 
+T \(\rightarrow\) T'. (translation)
+T''.
+
+Another example is to replace propositional theories with sets. Applies to anything 
+in pure mathematics such as groups, \ldots{} ,.etc . Let's continue with Sets though:
+
+A\(\rightarrow\) B. (Function from A to B, is A x B)
+C
+
+An assignment of elements in B to elements of A.
+
+\begin{enumerate}
+\item A \(\rightarrow\) (f) B\(\rightarrow\) (g)C\(\rightarrow\) (h) D
+\begin{enumerate}
+\item \((g \circ f)(a) = g(f(a))\) where \(\circ\) is composition
+\item \(h \circ(g\circ f) = (h\circ g)\circ f\)
+\item \(\circ\) is associative
+\end{enumerate}
+\end{enumerate}
+
+\(1_A(a)=a_1 \forall a \in A\) (identity)
+
+C\(\rightarrow\) (g)A\(\rightarrow\) (f) B
+
+\(\uparrow\)
+
+\(1_A\)\\
+\(f \circ 1_A = f\)\\
+\(1_A \circ g = g\)\\
+
+Everything you say is a category; Objects/things and arrows, composition, associative, and identity
+
+Examples of categories
+\begin{itemize}
+\item Groups
+\item Vectors
+\item Topological spaces
+\item Boolean Algebra
+\item Rings
+\item Sheathes on X
+\item Categories; Must start on Categories of small categories;
+\end{itemize}
+
+Equivilance properties
+\begin{itemize}
+\item Symmetry
+\item Reflexivity
+\item Transitivity
+\end{itemize}
+
+\subsection{Category of theories}
+\label{sec:org3ec6921}
+\begin{itemize}
+\item Objects: Proof Theory; T | (\(\Sigma\), T) \implies T\vdash \(\phi\) and T'\vdash f(\(\phi\))
+\item Arrows:
+\begin{itemize}
+\item reconstrual f; T \(\rightarrow\) T'
+\item reconstrual g; T' \(\rightarrow\) T
+\item T \(\in\) \(\Sigma\) ; T' \(\in\) \(\Sigma \prime\)
+\item f \(\simeq\) g iff T' \vdash f(\(\phi\)) \iff g(\(\phi\))
+\begin{itemize}
+\item Reflexivity is obvious
+\item Symmetry is true by nature of \iff
+\end{itemize}
+\end{itemize}
+\item Define Composition in this category
+\item \(T_0 \rightarrow (f)(f') T \rightarrow (g)(g') T'\)
+\begin{itemize}
+\item \([g]\circ [f] = [g \circ f]\)
+\item Need to show that If f \(\simeq\) f' and g\(\simeq\) g' then \(g\circ f \simeq g'\circ f'\)
+\item Let \(\phi\) \(\in\) \(Sent(\Sigma_0)\). Show T \vdash g(f(\(\phi\))) \iff g'(f'(\(\phi\)))
+\item T \vdash f(\(\phi\)) \iff f'(\(\phi\))
+\item Since g\(\simeq\) g', T' \vdash g(f'(\(\phi\)))\iff g'(f'(\(\phi\))) (1)
+\item g(f(\(\phi\))\iff f'(\(\phi\))) = g(f(\(\phi\))) \iff g(f'(\(\phi\)))
+\begin{itemize}
+\item Literal equality of sentences; Definition of reconstrual
+\end{itemize}
+\item Since g is a translation, T' \vdash g(f(\(\phi\)))\iff g(f'(\(\phi\))) (2)
+\item T' \vdash g(f(\(\phi\))) \iff g'(f'(\(\phi\)))
+\end{itemize}
+\item What is the Identity \(1_T\)?
+\begin{itemize}
+\item Identity is strict, only takes you to the same thing
+\end{itemize}
+\end{itemize}
+
+How to decide definition of a category thoeries is c
+
+\subsection{Special kinds of Arrows}
+\label{sec:org91d3534}
+
+\begin{itemize}
+\item Monomorphism
+\begin{itemize}
+\item \(f:A\rightarrow B\) if for any two arrows \(g: X \rightarrow A\) and \(h: X\rightarrow A\) if \(f\circ g= f \circ h\) then \(g =h\)
+\item monic
+\end{itemize}
+\item Epimorphism
+\begin{itemize}
+\item f:A\(\rightarrow\) B is epi iff \(\forall\) g: B\(\rightarrow\) C and h: B\(\rightarrow\) C. If \(g\circ f = h\circ f\) then g= h
+\item If f is epi then f is onto. F is injective i.e. doesnt cover whole range
+\begin{itemize}
+\item function \(g(y_0)=0\) and \(h(y_0)=1\)
+\item \(g\circ f = h\circ f\)
+\end{itemize}
+\end{itemize}
+\item Isomorphism
+\begin{itemize}
+\item Suppose we have two objects A and B; with f A\(\rightarrow\) B and g B\(\rightarrow\) A
+\item \(gf=1_A\)
+\item \(fg=1_B\)
+\end{itemize}
+\end{itemize}
+
+These don't always correspond set theoretic notions. How do these relate?
+
+\begin{center}
+\begin{tabular}{lll}
+Term & Definition & Example\\
+\hline
+monomorphism/monic & f:A\(\rightarrow\) B if for any two arrows g: X \(\rightarrow\) A and h: X\(\rightarrow\) A if f\^{} g= f \^{} h then g =h$\backslash$) & \\
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item Every isomorphism is a monomorphism and every iso is an epi
+\item Try to do inverse; should fail.
+\end{itemize}
+\section{More on Categories 09/26/19}
+\label{sec:org3c644cf}
+\begin{center}
+\begin{tabular}{lll}
+interpretation & abstract & concrete\\
+\hline
+Equivilent & iso & \\
+ & monic & conservative\\
+ & ep & \\
+\end{tabular}
+\end{center}
+
+In relation to the category of theories.
+
+Categories will always have these relations and will always make sense.
+
+Iso: \(gf=1_A \wedge fg=1_B\)
+
+Monic: 
+\begin{center}
+\begin{tabular}{lll}
+fg & = & fh\\
+\hline
+ & g=h & \\
+\end{tabular}
+\end{center}
+
+Epi:
+\begin{center}
+\begin{tabular}{lll}
+gf & = & hf\\
+\hline
+ & g=h & \\
+\end{tabular}
+\end{center}
+
+Epimorphism is mirror image of monomorphism. Can get the other by flipping the 
+composition. Remember can drop \(\circ\) for comp. for shorthand. 
+T \(\rightarrow\) (f) T\(\prime\)
+\subsection{Isomorphism}
+\label{sec:org4991e8e}
+[f] is isomorphism w/ [] meaning it is an equivalnce  class.
+
+\([g]\circ [f] = 1_T\)\\
+\(gf\simeq = 1_T\)\\
+\([f]\circ [g] - 1_{T^\prime}\)\\
+\(fg \simeq 1_T{^\prime}\)\\
+\(T\vdash \phi \iff gf(\phi)\)\\
+\(T^\prime \vdash \psi \iff fg(\psi)\)\\
+
+T crushes T'  in epimorphism
+
+\begin{center}
+\begin{tabular}{lllll}
+\(\phi\) & / & f & $\backslash$ & \(\psi\)\\
+\hline
+gf(\(\phi\)) & $\backslash$ & g & / & fg(\(\psi\))\\
+\end{tabular}
+\end{center}
+
+\subsection{Monomorphism stuff}
+\label{sec:org9dfa8d6}
+\textbf{Definition:} (if T\vdash \(\phi\) the T' \vdash f(\(\phi\))) satisfied by monotonicity
+f is \textbf{conservative} if T' \vdash f(\(\phi\)) then T\vdash \(\phi\)
+
+Ex1: \(\Sigma\) = \{p\}. f(p)=p\(\vee\) \(\neg{}\) p
+
+T \textlnot{} \vdash p
+\end{document}
